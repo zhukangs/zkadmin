@@ -39,7 +39,7 @@
                                     <button class="file-upload-browse btn btn-gradient-primary" onclick="upload($(this))" type="button">上传</button>
                                 </span>
                             </div>
-                            <div class="col-md-4">*不上传及使用默认头像</div>
+                            <div class="col-md-4">*不上传将使用默认头像</div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2 img-yl" style="display: block;margin-top: 5px;">
                             </div>
