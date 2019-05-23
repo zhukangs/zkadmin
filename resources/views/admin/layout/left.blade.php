@@ -48,7 +48,7 @@
                 @endforeach
                 @if(auth('admin')->user()->id == 1)
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i> <span> 系统设置 </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i> <span> 系统设置 </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{route('admin.menu.index')}}">菜单</a></li>
                         <li><a href="{{route('admin.permission.index')}}">权限</a></li>
