@@ -17,6 +17,8 @@ zkadmin是一款基于laravel框架进行封装的后台管理系统,其中包�
 - 项目弹出层引用了layer,可直接使用layer
 - 持续维护中...
 
+
+
 ## 安装教程
 
 - 克隆代码库`git clone https://github.com/zhukangs/zkadmin.git` 
@@ -28,6 +30,80 @@ zkadmin是一款基于laravel框架进行封装的后台管理系统,其中包�
 - 如发现权限相关问题 执行 chown -R 用户名:用户组 项目目录
 - 访问后台域名：`http://zkadmin.test/admin`，默认管理员账号：`admin`，密码：`password`，登录即可进入管理系统
 - 可能遇到的问题`Please provide a valid cache path.` ，解决：在`storage/framework/`下新建文件夹`views`
+
+
+
+
+## 使用流程
+
+以增加一个`用户管理`模块为例
+
+- 新建控制器：`php artisan make:controller Admin/UserController`
+
+- 新建模型：`User` 模型就不用新建了，已将默认 `User` 模型移入至 `Models` 文件夹下，直接使用就好了，若要新建，执行`php artisan make:model Models/User` 即可
+
+- 新建路由：在 `routes/admin.php` 编写路由，放至在 `prefix` 为 `admin` 的分组下即可，如下：
+
+  ```php
+  Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware'=>['auth.admin:admin'],],function($router){
+  	//其他模块
+  	.
+  	.
+  	//用户模块
+      $router->get('user', 'UserController@index')->name('admin.user.index');
+      $router->get('user/create', 'UserController@create')->name('admin.user.create');
+      $router->post('user/store', 'UserController@store')->name('admin.user.store');
+      $router->get('user/edit/{id}', 'UserController@edit')->name('admin.user.edit');
+      $router->post('user/update/{id}', 'UserController@update')->name('admin.user.update');
+      $router->post('user/del/{id}', 'UserController@delete')->name('admin.user.delete');
+
+  });
+  ```
+
+  觉得写这么多路由比较麻烦的，可以根据自己的想法，运用资源路由，或者每个模块一个路由文件，然后引入进来也行。
+
+- 新建控制器下的方法：`UserController`编写对应的方法，如：
+
+  ```php
+  	//用户列表
+      public function index()
+      {
+          //
+      }
+
+      //新增用户表单页
+      public function create()
+      {
+          //
+      }
+
+      //新增用户数据入库
+      public function store(Request $request)
+      {
+          //
+      }
+
+      //用户编辑表单页
+      public function edit($id)
+      {
+          //
+      }
+
+      //修改数据入库
+      public function update(Request $request, $id)
+      {
+          //
+      }
+
+      //删除用户
+      public function delete($id)
+      {
+          $//
+      }
+  ```
+
+- 新建视图：在 `resources/views/admin/` 下新建 `user` 文件夹，然后新建对应的视图文件即可，具体可参考 `administrator` 下的。
+
 
 
 
