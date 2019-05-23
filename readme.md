@@ -29,40 +29,6 @@ zkadmin是一款基于laravel框架进行封装的后台管理系统,其中包�
 - 访问后台域名：`http://zkadmin.test/admin`，默认管理员账号：`admin`，密码：`password`，登录即可进入管理系统
 - 可能遇到的问题`Please provide a valid cache path.` ，解决：在`storage/framework/`下新建文件夹`views`
 
-## 请求(不想用这个请求方法可以自行用ajax)
-
-```javascript
-var data = {id:1};//参数
-myRequest("/admin/config/add","post",data,function(res){
-    //请求成功回调
-    layer.msg("提示信息");//弹出提示
-    //15秒后刷新父页面
-    setTimeout(function(){
-        parent.location.reload();
-    },1500)
-});
-```
-
-> 请求失败回调默认封装了取消loading层的操作，如果想自定义请求失败的回调的话，自行修改public/assets/js/common.js文件中的myRequest方法
-
-## 表单不为空验证
-
-input添加`require`class
-
-```html
- <div class="form-group" id="string">
-    <label >* 测试</label>
-    <input type="text" name="test" class="form-control require"  placeholder="">
-</div>
-```
-
-```js
-check = checkForm();//验证表单，如果带有require的input为空，则边框变为红色并弹出提示
-if(!check){
-    return false;
-}
-```
-
 
 
 ## 部分截图
