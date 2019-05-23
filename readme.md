@@ -46,16 +46,16 @@ zkadmin是一款基于laravel框架进行封装的后台管理系统,其中包�
 
   ```php
   Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware'=>['auth.admin:admin'],],function($router){
-  	//其他模块
-  	.
-  	.
-  	//用户模块
-      $router->get('user', 'UserController@index')->name('admin.user.index');
-      $router->get('user/create', 'UserController@create')->name('admin.user.create');
-      $router->post('user/store', 'UserController@store')->name('admin.user.store');
-      $router->get('user/edit/{id}', 'UserController@edit')->name('admin.user.edit');
-      $router->post('user/update/{id}', 'UserController@update')->name('admin.user.update');
-      $router->post('user/del/{id}', 'UserController@delete')->name('admin.user.delete');
+    //其他模块
+    .
+    .
+    //用户模块
+    $router->get('user', 'UserController@index')->name('admin.user.index');
+    $router->get('user/create', 'UserController@create')->name('admin.user.create');
+    $router->post('user/store', 'UserController@store')->name('admin.user.store');
+    $router->get('user/edit/{id}', 'UserController@edit')->name('admin.user.edit');
+    $router->post('user/update/{id}', 'UserController@update')->name('admin.user.update');
+    $router->post('user/del/{id}', 'UserController@delete')->name('admin.user.delete');
 
   });
   ```
@@ -65,41 +65,41 @@ zkadmin是一款基于laravel框架进行封装的后台管理系统,其中包�
 - 新建控制器下的方法：`UserController`编写对应的方法，如：
 
   ```php
-  	//用户列表
-      public function index()
-      {
-          //
-      }
+  //用户列表
+  public function index()
+  {
+    //
+  }
 
-      //新增用户表单页
-      public function create()
-      {
-          //
-      }
+  //新增用户表单页
+  public function create()
+  {
+    //
+  }
 
-      //新增用户数据入库
-      public function store(Request $request)
-      {
-          //
-      }
+  //新增用户数据入库
+  public function store(Request $request)
+  {
+    //
+  }
 
-      //用户编辑表单页
-      public function edit($id)
-      {
-          //
-      }
+  //用户编辑表单页
+  public function edit($id)
+  {
+    //
+  }
 
-      //修改数据入库
-      public function update(Request $request, $id)
-      {
-          //
-      }
+  //修改数据入库
+  public function update(Request $request, $id)
+  {
+    //
+  }
 
-      //删除用户
-      public function delete($id)
-      {
-          $//
-      }
+  //删除用户
+  public function delete($id)
+  {
+    //
+  }
   ```
 
 - 新建视图：在 `resources/views/admin/` 下新建 `user` 文件夹，然后新建对应的视图文件即可，具体可参考 `administrator` 下的。
