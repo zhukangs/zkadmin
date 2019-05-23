@@ -44,7 +44,7 @@
                             {{--<i class="ti-angle-down"></i>--}}
                         </a>
                         <ul class="dropdown-menu">
-                            <li style="cursor:pointer"><a onclick="edit({{auth('admin')->user()->id}})"> <i class="fa fa-edit"></i> 修改信息</a></li>
+                            <li style="cursor:pointer"><a onclick="editMe({{auth('admin')->user()->id}})"> <i class="fa fa-edit"></i> 修改信息</a></li>
                             <li class="divider"></li>
                             <li style="cursor:pointer"><a href="{{route('admin.logout')}}"><i class="fa fa-sign-out"></i> 退出登录</a></li>
                         </ul>
@@ -56,20 +56,16 @@
     </div>
 </div>
 
-@section('js')
-
-    <script>
-        //修改模态框
-        function edit(id){
-            var page = layer.open({
-                type: 2,
-                title: '编辑管理员信息',
-                shadeClose: true,
-                shade: 0.8,
-                area: ['70%', '90%'],
-                content: '/admin/system/administrator/edit/'+id
-            });
-        }
-    </script>
-
-@endsection
+<script>
+    //修改模态框
+    function editMe(id){
+        var page = layer.open({
+            type: 2,
+            title: '编辑管理员信息',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['70%', '90%'],
+            content: '/admin/system/administrator/edit/'+id
+        });
+    }
+</script>
