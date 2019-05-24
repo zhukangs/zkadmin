@@ -62,14 +62,14 @@
                     </div>
                 </div>
 
-                <div class="form-group m-t-30 m-b-0">
+                {{--<div class="form-group m-t-30 m-b-0">
                     <div class="col-sm-7">
                         <a href="pages-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
                     </div>
                     <div class="col-sm-5 text-right">
                         <a href="pages-register.html" class="text-muted">Create an account</a>
                     </div>
-                </div>
+                </div>--}}
             </form>
         </div>
 
@@ -92,6 +92,13 @@
 <script src="/vendor/admin/assets/js/jquery.scrollTo.min.js"></script>
 
 <script src="/vendor/admin/assets/js/app.js"></script>
+<script src="/vendor/admin/assets/layer/layer.js"></script>
+
+@if(session('error'))
+    <script>
+        layer.msg('{{session('error')}}',{icon:5,anim:6});
+    </script>
+@endif
 
 </body>
 </html>

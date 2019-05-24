@@ -2,7 +2,7 @@
 
 @section('css')
     <style>
-        .permission-tr > td{vertical-align:middle;}
+        .permission-tr > td{vertical-align:middle !important;}
     </style>
 
 @endsection
