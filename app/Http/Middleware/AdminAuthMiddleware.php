@@ -40,7 +40,7 @@ class AdminAuthMiddleware
             $newRoutes=array_merge($newRoutes,$routes);
         }
         array_unique($newRoutes);
-        if(!in_array(Route::current()->uri,$newRoutes)){
+        if(!in_array(Route::current()->uri,$newRoutes) && auth('admin')->user()->id != 1){
             abort(403);
         }
 

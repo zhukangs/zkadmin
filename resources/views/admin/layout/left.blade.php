@@ -39,7 +39,7 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="{{$menu->icon}}"></i> <span> {{$menu->name}} </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                             <ul class="list-unstyled">
                                 @foreach($menu->children as $c_key=>$c_menu)
-                                    <li><a href="{{url($c_menu->url)}}">{{$c_menu->name}}</a></li>
+                                    <li @if(\Route::current()->uri===$c_menu->url) class="active" @endif><a @if(\Route::current()->uri===$c_menu->url) class="active" @endif href="{{url($c_menu->url)}}">{{$c_menu->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -47,15 +47,15 @@
                     @endif
                 @endforeach
                 @if(auth('admin')->user()->id == 1)
-                <li>
-                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i> <span> 系统设置 </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('admin.menu.index')}}">菜单</a></li>
-                        <li><a href="{{route('admin.permission.index')}}">权限</a></li>
-                        <li><a href="{{route('admin.role.index')}}">角色</a></li>
-                        <li><a href="{{route('admin.administrator.index')}}">管理员</a></li>
-                    </ul>
-                </li>
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i> <span> 系统设置 </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li @if(\Route::current()->uri==='admin/system/menu') class="active" @endif> <a @if(\Route::current()->uri==='admin/system/menu') class="active" @endif href="{{route('admin.menu.index')}}">菜单</a></li>
+                            <li @if(\Route::current()->uri==='admin/system/permission') class="active" @endif><a @if(\Route::current()->uri==='admin/system/permission') class="active" @endif href="{{route('admin.permission.index')}}">权限</a></li>
+                            <li @if(\Route::current()->uri==='admin/system/role') class="active" @endif><a @if(\Route::current()->uri==='admin/system/role') class="active" @endif href="{{route('admin.role.index')}}">角色</a></li>
+                            <li @if(\Route::current()->uri==='admin/system/administrator') class="active" @endif><a @if(\Route::current()->uri==='admin/system/administrator') class="active" @endif href="{{route('admin.administrator.index')}}">管理员</a></li>
+                        </ul>
+                    </li>
                 @endif
 
             </ul>
