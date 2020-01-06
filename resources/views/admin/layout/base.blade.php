@@ -16,7 +16,12 @@
 
     <link href="/vendor/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/vendor/admin/assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/admin/assets/css/style.css" rel="stylesheet" type="text/css">
+    {{--<link href="/vendor/admin/assets/css/style.css" rel="stylesheet" type="text/css">--}}
+    @if(auth('admin')->user()->system_color==1)
+        <link href="/vendor/admin/assets/css/style_black.css" rel="stylesheet" type="text/css">
+    @else
+        <link href="/vendor/admin/assets/css/style_white.css" rel="stylesheet" type="text/css">
+    @endif
     @yield('css')
 
 </head>
@@ -82,6 +87,18 @@
                 }
             }
         });
+    });
+
+    $('#system-color').click(function () {
+        //删除操作
+        myRequest("/admin/system/administrator/system_color","post",{},function(res){
+            layer.msg(res.msg.msg);
+            setTimeout(function(){
+                window.location.reload();
+            },1500)
+        });
+
+
     });
 </script>
 

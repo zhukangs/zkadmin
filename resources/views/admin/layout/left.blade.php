@@ -1,27 +1,5 @@
 <div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
-
-        <!--<div class="user-details">-->
-        <!--<div class="pull-left">-->
-        <!--<img src="/vendor/admin/assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">-->
-        <!--</div>-->
-        <!--<div class="user-info">-->
-        <!--<div class="dropdown">-->
-        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">David Cooper <span class="caret"></span></a>-->
-        <!--<ul class="dropdown-menu">-->
-        <!--<li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>-->
-        <!--<li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>-->
-        <!--<li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>-->
-        <!--<li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-
-        <!--<p class="text-muted m-0">Admin</p>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--- Divider -->
-
-
         <div id="sidebar-menu">
             <ul>
                 <li class="menu-title"> <span class="badge badge-dark">{{auth('admin')->user()->roles->name}} </span></li>
@@ -61,5 +39,12 @@
             </ul>
         </div>
         <div class="clearfix"></div>
+        <div style="width: 100%;position: absolute;bottom: 85px;text-align: center;">
+            @if(auth('admin')->user()->system_color==1)
+                <i id="system-color" style="font-size: 36px;color: #2a323c;margin-right: 15px" class="mdi mdi-lightbulb"></i>
+            @else
+                <i id="system-color" style="font-size: 36px;color: #2a323c;margin-right: 15px" class="mdi mdi-lightbulb-outline"></i>
+            @endif
+        </div>
     </div> <!-- end sidebarinner -->
 </div>

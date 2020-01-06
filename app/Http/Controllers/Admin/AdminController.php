@@ -65,4 +65,17 @@ class AdminController extends BaseController
         $admin->delete();
         return $this->json(200, '删除成功！');
     }
+
+    //主題切換
+    public function systemColor()
+    {
+        $admin = Admin::findOrFail(auth('admin')->user()->id);
+        if($admin->system_color==1){
+            $admin->system_color=2;
+        }else{
+            $admin->system_color=1;
+        }
+        $admin->save();
+        return $this->json(200, ['msg'=>'主題切換成功！','status'=>$admin->system_color]);
+    }
 }

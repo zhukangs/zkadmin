@@ -15,6 +15,7 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->tinyInteger('system_color')->default(1)->comment('1深色 2白色');
             $table->integer('role_id');
             $table->string('username');
             $table->string('email');

@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware'=>['auth.ad
         $router->get('administrator/create', 'AdminController@create')->name('admin.administrator.create');
         $router->post('administrator/store', 'AdminController@store')->name('admin.administrator.store');
         $router->post('administrator/del/{id}', 'AdminController@delete')->name('admin.administrator.delete');
+        $router->post('administrator/system_color', 'AdminController@systemColor')->name('admin.administrator.systemColor');
         //角色模块
         $router->get('role', 'RoleController@index')->name('admin.role.index');
         $router->get('role/create', 'RoleController@create')->name('admin.role.create');
